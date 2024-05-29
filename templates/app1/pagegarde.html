@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de garde </title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Ajoutez ici vos liens vers les feuilles de style CSS ou d'autres ressources -->
+</head>
+<body>
+    
+
+
+<section class='top'>
+   <header >
+       
+
+        
+    <section class="header">
+        <img class="logo" src="/static/lelogo.png" alt="Logo">
+        <nav class="menu">
+            <a href="{% url 'pagedegarde' %}">Acceuil</a>
+            <a href="{% url 'apropos' %}">A propos de nous</a>
+            <a href="{% url 'contact' %}">Contactez nous</a>
+            <!-- Ajout du bouton de connexion -->
+            <a href="{% url 'connexion' %}"class="bouton">
+                <button> Connectez-vous</button>
+            </a>
+        </nav>
+    </section>
+    
+    
+
+     
+    
+      <div class="hautpage">
+       <div class="titre">
+       
+             <h1 class="Titre">E-PRESCRIBER</h1> <br>
+             <p class="pardebut">La première plateforme de numérisation médicale en Algérie pour une prescription totalement électronique</p>
+             <div class="boutoninsc"> 
+        
+                <a href="{% url 'connexion' %}"class="boutonn">
+                    <button>Rejoignez-nous</button>
+                </a>
+            </div>
+           
+       </div>
+      
+    </div>
+
+      <section class="services">
+        <div class="service-item">
+            <i class="material-icons">description</i>
+             <p class ="service-details">Une ordonnance 100% électronique</p>
+        </div>
+
+        <div class="service-item">
+            <i class="material-icons">medical_services</i>
+             <p class ="service-details">Un large choix de médecins à votre disposition</p>
+        </div>
+
+        <div class="service-item">
+            <i class="material-icons">local_hospital</i>
+             <p  class ="service-details">Un large choix de pharmacies à votre disposition</p>    
+        </div>
+
+        
+        <div class="service-item">
+            <i class="material-icons">shopping_bag</i>
+             <p  class ="service-details">Une livraison  à domicile de vos médicaments</p>    
+        </div>
+    </section>
+      
+
+    <section class="top1">
+        <div class="haut">
+            <h1>E-PRESCRIBER</h1>
+            <p >Online prescription service</p>
+
+        </div>
+        <div class="presentation">
+           
+                <div class="left">
+                    
+                    <br>
+                    <p class="p1"> Une révolution numérique dans le systéme santé !</p>
+                    <div class="image1"><img src="/static/img.png"></div>
+                </div>
+                <div class="right">
+                    <h1>Les ordonnances électroniques :</h1>
+                    <p >
+                        Ces dernières années, les ordonnances électroniques ont connu une popularité croissante à l'échelle mondiale, transformant la manière dont les prescriptions médicales sont émises et gérées. Cette transition vers le numérique est devenue une tendance dominante, avec de plus en plus d'établissements de santé adoptant cette approche moderne. Cette évolution reflète non seulement une acceptation croissante parmi les professionnels de la santé et les patients, mais elle suggère également une future obsolescence des ordonnances papier.</p>
+                        <p >Dans un avenir proche, il est envisageable que les ordonnances électroniques deviennent la norme dans le domaine médical. Cette transition promet des processus plus efficaces et une meilleure accessibilité pour les patients. Les avantages potentiels incluent une réduction des erreurs de prescription, une coordination améliorée des soins et une gestion plus efficace des traitements. En embrassant les ordonnances électroniques, les établissements de santé peuvent ainsi améliorer l'efficacité de leurs services tout en offrant une expérience de soins plus moderne et pratique pour les patients.</p>     
+                    
+                </div>
+            
+        </div>
+    </section>
+
+    <section class="top2">
+        
+    <div class="avantage1">
+        <div class="avantage1-item">
+            <a class="material-icons">security</a>
+             <p class ="service-details11">Fiabilité Améliorée :</p>
+             <p class ="service-details1">Les ordonnances électroniques réduisent les erreurs et les fraudes associées aux prescriptions papier.</p>
+        </div>
+
+        <div class="avantage1-item">
+            <a class="material-icons">chat_bubble</a>
+             <p class ="service-details11">Coordination Facilitée :</p>
+             <p class ="service-details1">Les ordonnances électroniques favorisent une meilleure communication entre les professionnels de la santé, améliorant ainsi la coordination des soins.</p>
+        </div>
+
+        <div class="avantage1-item">
+            <a class="material-icons">history</a>
+             <p  class ="service-details11">Accessibilité Améliorée :</p>
+             <p  class ="service-details1">  Les patients peuvent facilement accéder à leur historique médical, réduisant ainsi le risque de perte d'informations critiques.</p>    
+        </div>
+        <div class="avantage1-item">
+            <a class="material-icons">autorenew</a>
+            <p  class ="service-details11">Durabilité Environnementale:</p>
+            <p  class ="service-details1">   Zéro papier signifie moins de dégradation environnementale et de gaspillage de ressources.</p>    
+        </div>
+
+    </div>
+
+
+
+        
+       
+   
+    </section> 
+    <section class="top1">
+        <div class="haut">
+            <h1>E-PRESCRIBER</h1>
+            <p >Online prescription service</p>
+
+        </div>
+        <div class="presentation">
+           
+                <div class="left">
+                    <p class="p11"> Tout en un seul clic !</p>
+                    <br>  <br>  <br>  <br>  <br>  
+                    <p class="p2">  Notre application médicale vise à simplifier les consultations et à améliorer la vie des patients en offrant une interface conviviale et des fonctionnalités intuitives. Nous cherchons à rendre l'accès aux soins plus facile et efficace en contribuant à l'évolution du domaine médical avec des innovations significatives pour le bien-être général.</p>
+                    <br>  <br>  <br>  <br>  <br>
+                       <p class="p2"> La première étape consiste à accéder à l'application, puis à prendre rendez-vous avec un médecin. Une fois la consultation effectuée, vous pouvez obtenir une ordonnance électronique directement sur votre profil. Enfin, vous pouvez commander vos médicaments et vous faire livrer</p>
+                </div>
+                <div class="right">
+                    
+                    
+                    <img src="/static/Section3.png"> 
+                </div>
+            
+        </div>
+    </section>
+
+    
+    </header>
+    
+    
+    <footer class="footer ">
+        <div  class="container">
+          <div  class="row">
+              <div  class="footer-col">
+                  <h4>à propos de nous </h4>
+                  <ul>
+                      <li><a href=""> </a></li>
+                      <li><a href=""> Nos Avantages </a></li>
+                      <li><a href="">Nos objectifs </a></li>
+                      
+                  </ul>
+              </div>
+            
+              <div  class="footer-col">
+                  <h4>Nos services</h4>
+                  <ul>
+                      <li><a href="">L'ordonnance electronique qu'est ce que c'est </a></li>
+                      <li><a href="">Comment marche EPRESCRIBER</a></li>
+                      <li><a href="">Avez-Vous Des Questions?</a></li>
+                     
+                  </ul>
+              </div>
+              <div  class="footer-col">
+                  <h4>Suivez nous </h4>
+                  <div class="social-links"     >
+                      <a href="">  <i class="fab fa-facebook"></i> </a>
+                      <a href="">  <i class="fab fa-instagram"></i>  </a>
+                      <a href="">  <i class="fab fa-twitter"></i></a>
+                      <a href="">   <i class="fas fa-envelope"></i></a>
+                     
+                  </div>
+              </div>
+              
+    
+    
+    
+    
+          </div>
+    
+    
+    
+    
+    
+    
+        </div>
+    
+    
+    
+    
+      </footer>
+</section> 
+
+
+</body>
+</html>

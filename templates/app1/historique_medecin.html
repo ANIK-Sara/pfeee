@@ -1,0 +1,244 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patient</title>
+<link rel="stylesheet" href="{% static 'style1.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+<style>
+    .header {
+        display: flex;
+        background-color: #0d474b;
+        margin: -10px;
+        justify-content: center;
+        align-items: center;
+        height: 78px;
+    }
+
+    .header p {
+        color: whitesmoke;
+        font-weight: bold;
+        font-size: 25px;
+        margin-left: 10px;
+    }
+
+    .header i {
+        font-size: 50px;
+        color: rgb(56, 155, 47);
+        margin-right: 10px;
+    }
+
+    .container {
+        height: 100vh;
+        width: 25%;
+        float: left;
+        margin-left: -10px;
+        padding: 20px;
+    }
+
+    .box {
+        background-color: #f1f1f1;
+        margin-bottom: 30px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .box a {
+        text-decoration: none;
+        font-weight: bold;
+        color: #0d474b;
+    }
+
+    .pharmacie-item {
+        margin-left: 200px;
+    }
+
+    /* Styles pour la fenêtre modale */
+    .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 60px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+    }
+
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .ordonnance {
+        text-align: left;
+    }
+
+    .ligne {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .ligne label, .ligne input, .ligne select {
+        margin: 5px;
+    }
+
+    .ajouter-champ {
+        text-align: right;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+<div class="header">
+    <h5 style="margin-left: -1000px; color: white;">Patient EPRESCRIBER</h5>
+    <div style="position: absolute; right: 20px; top: 20px;">
+        <a href="{% url 'deconnexion' %}" class="btn btn-danger btn-sm" style="width: 150px;">Déconnexion</a>
+    </div>
+</div>
+
+<div class="container">
+    <a >
+        <div class="box">
+            <a href="{% url 'profilmed' %}">Mon profil</a>
+        </div>
+    </a>
+    <a >
+        <div class="box">
+            <a href="{% url 'messages_recus' %}">Messagerie</a>
+        </div>
+    </a>
+    <a >
+        <div class="box">
+           <a href="{% url 'historique_medecin' %}">Historiques</a>
+        </div>
+    </a>
+</div> 
+
+<br><br>
+<h1 style="text-align: center;">Les ordonnances</h1>
+<ul>
+    {% for ordonnance in ordonnances %}
+        <h3 class="ordonnance-title" data-ordonnance-id="{{ ordonnance.id_ordonnance }}">
+            {{ ordonnance.id_ordonnance }} {{ ordonnance.date_creation }}
+        </h3>
+       
+        <button class="btn btn-primary voir-ordonnance"
+                data-ordonnance-id="{{ ordonnance.id_ordonnance }}"
+                data-medecin="{{ ordonnance.medecin.user }}"
+                data-patient="{{ ordonnance.infos_patient.patient.user }}"
+                data-nom="{{ ordonnance.infos_patient.nom }}"
+                data-age="{{ ordonnance.infos_patient.age }}"
+                data-sexe="{{ ordonnance.infos_patient.sexe }}"
+                data-produits='[{% for produit in ordonnance.produits.all %}{"nom":"{{ produit.nom_prp }}","description":"{{ produit.Descriptionp }}"}{% if not forloop.last %},{% endif %}{% endfor %}]'>Voir ordonnance</button>
+        <hr>
+    {% endfor %}
+</ul>
+
+<!-- La fenêtre modale -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="fermerModal">&times;</span>
+        <div class="ordonnance">
+            <h2>Ordonnance</h2>
+            <div id="ordonnance-details">
+                <!-- Les détails de l'ordonnance seront insérés ici par JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $(".voir-ordonnance").click(function(){
+            var medecin = $(this).data("medecin");
+            var patient = $(this).data("patient");
+            var nom = $(this).data("nom");
+            var age = $(this).data("age");
+            var sexe = $(this).data("sexe");
+            var produits = $(this).data("produits");
+
+            // Construire le contenu de la fenêtre modale
+            var modalContent = `
+                <div class="formulaire">
+                    <div class="ligne">
+                        <label for="medecin_user">ID Médecin:</label>
+                        <input type="text" id="medecin_user" name="medecin_user" value="${medecin}" readonly>
+                        <label for="patient_user">ID Patient:</label>
+                        <input type="text" id="patient_user" name="patient_user" value="${patient}" readonly>
+                    </div>
+                    <br><br>
+                    <div class="ligne">
+                        <label for="nom_patient">Nom:</label>
+                        <input type="text" id="nom-patient" name="nom_patient" value="${nom}" readonly>
+                        <label for="age_patient">Âge:</label>
+                        <input type="text" id="age-patient" name="age_patient" value="${age}" readonly>
+                        <label for="sexe_patient">Sexe:</label>
+                        <input type="text" id="sexe-patient" name="sexe_patient" value="${sexe}" readonly>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <div id="produits-container">
+            `;
+            produits.forEach(function(produit, index){
+                modalContent += `
+                    <div class="ligne">
+                        <label for="produit${index + 1}">Prescription:</label>
+                        <input type="text" name="produit[]" value="${produit.nom}" readonly>
+                        <input type="text" name="description[]" value="${produit.description}" readonly>
+                    </div>
+                `;
+            });
+            modalContent += `
+                    </div>
+                </div>
+            `;
+
+            // Insérer le contenu dans la fenêtre modale
+            $("#ordonnance-details").html(modalContent);
+
+            // Afficher la fenêtre modale
+            $("#modal").css("display", "block");
+        });
+
+        // Fermer la fenêtre modale
+        $("#fermerModal, .close").click(function(){
+            $("#modal").css("display", "none");
+        });
+
+        // Fermer la fenêtre modale en cliquant en dehors de celle-ci
+        $(window).click(function(event){
+            if ($(event.target).is("#modal")) {
+                $("#modal").css("display", "none");
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<style>
+    .header {
+        display: flex;
+        /* background-color: #0d474b; */
+        background-color: #0d474b;
+        margin: 0px; /* Supprime les marges extérieures */
+        justify-content: center; /* Centre le contenu horizontalement */
+        align-items: center;
+        height: 70px; /* Centre le contenu verticalement */
+    }
+    .header p {
+        color: whitesmoke;
+        font-weight: bold;
+        font-size: 25px;
+        margin-left: 10px; /* Ajuste l'espacement */
+    }
+    .header i {
+        font-size: 50px;
+        color: rgb(56, 155, 47);
+        margin-right: 10px; /* Ajuste l'espacement */
+    }
+    </style>
+
+
+</head>
+<body>
+    <div class="header">
+        <h5 style="margin-left: -1000px; color: white;">Patient EPRESCRIBER</h5>
+        
+        <div style="position: absolute; right: 20px; top: 20px;">
+            <a href="{% url 'deconnexion' %}" class="btn btn-danger btn-sm" style="width: 150px;">Déconnexion</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group"  id="item-list">
+                <br><br>
+                <h3 class="text-center">La liste de produits que vous avez ajouté au panier </h3> <br>
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <br><br>
+            <h3 style="margin-left: 50px;">Veuillez remplir ce formulaire pour valider votre commande </h3>
+            <br>
+            <form  method="post"  id="order-form"  name="order-form">
+                {% csrf_token  %}
+                <input type="hidden" id="items" , name="items">
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Nom</label>
+                        <input type="text" id="nom" name="nom"  class="form-control" id="inputEmail4" placeholder="Entrer votre nom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">Prénom</label>
+                        <input type="text" id="prenom" name="prenom"  class="form-control" id="inputEmail4" placeholder="Entrer votre prénom">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Email</label>
+                        <input type="email" id="email" name="email"  class="form-control" id="inputPassword4" placeholder="Entrer votre email">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Numéro de téléphone</label> <br>
+                        <input type="text" name="tel" id="tel"    class="form-control" id="inputAddress" placeholder="Entre votre numéro de téléphone" style="width: 550px;">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text"  name="address" id="address" class="form-control" id="inputAddress" placeholder="Entrer votre adresse">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label for="inputState">Ville</label>
+                        <select id="ville"  name="ville"  class="form-control">
+                            <option selected>Alger</option>
+                            <option>Constantine</option>
+                            <option>Oran</option>
+                            <option>Annaba</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Somme total à payer </label>
+                        <input type="readonly" name="total" id="total" class=" bg-dark text-warning form-control" >
+                    </div>  
+                    <br>
+                   
+                </div>
+    
+    
+                <div class="form-group">
+                    <label for="ordonnance">Ordonnance (si nécessaire)</label>
+                    <input type="file" name="ordonnance" id="ordonnance" class="form-control" >
+                </div> 
+                <div class="form-group col-md-6">
+                    <label for="inputEmail4">Nom de la pharmacie</label>
+                    <input type="text" id="nomphar" name="nomphar"  class="form-control" id="inputEmail4" placeholder="Entrer le nom de notre pharmacie" required>
+                </div>
+    
+    
+    
+    
+                <div class="mt-3">
+                    <label for="message_pharma"><b>Voulez-vous envoyer un message à la pharmacie ?</b></label><br>
+                    <textarea id="message_pharma" placeholder="écrivez votre message ici "
+                        style="width: 400px; height: 200px;"></textarea>
+                </div>
+                <div class="form-group">
+                </div>
+                <button type="submit" class="btn btn-primary">Commander</button>
+            </form>
+        </div>
+    </div> <br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br>
+   
+    <script type="text/javascript">
+    
+    $(document).ready(function() {
+        // Initialisation du panier à partir du local storage
+        let panier;
+        if (localStorage.getItem('panier_pharmacie') == null) {
+            panier = {};  // Si le panier n'existe pas, créez un objet vide
+        } else {
+            panier = JSON.parse(localStorage.getItem('panier_pharmacie'));  // Chargez le panier depuis le local storage
+        }
+    
+        // Remplir la liste des éléments du panier
+        let total = 0;
+        let nombre = 0;
+        for (let key in panier) {
+            let produit = panier[key];
+            let quantité = produit[0];  // La quantité du produit
+            let nom = produit[1];  // Le nom du produit
+            let prix = produit[2];  // Le prix du produit
+    
+            nombre += quantité;
+            total += quantité * prix;  // Calcul du total
+    
+            // Créer l'élément de liste avec un identifiant unique
+            let itemString = `
+                <li data-item-id="${key}" class="list-group-item d-flex justify-content-between align-items-center">
+                    ${nom}
+                    <div class="quantity">
+                        <span class="minus">-</span>
+                        <span class="badge badge-primary badge-pill">Qte ${quantité}</span>
+                        <span class="plus">+</span>
+                    </div>
+                    <span class="badge badge-warning badge-pill">${prix} DA</span>
+                    <button class="btn btn-danger btn-sm remove-item" style="width: 150px;">Supprimer</button>
+                </li>`;
+            
+            $('#item-list').append(itemString);  // Ajouter l'élément à la liste
+        }
+    
+        // Mettre à jour le total et la quantité affichés
+        let itemTotal = `
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                <b class="bg-danger" style="color: white">PRIX ET QUANTITÉ TOTALS</b>
+                <span class="badge badge-danger badge-pill">TQte: ${nombre}</span>
+                <span class="badge badge-danger badge-pill">Total: ${total} DA</span>
+            </li>`;
+        
+        $('#item-list').append(itemTotal);  // Ajouter l'élément du total à la liste
+        $('#total').val(total + " DA");  // Mettre à jour le champ du total
+        $('#items').val(JSON.stringify(panier));  // Mettre à jour le champ caché pour le formulaire
+    
+        // Gestion des boutons "+" et "-"
+        $('.quantity .plus').click(function() {
+            let $quantity = $(this).siblings('.badge-primary');
+            let currentVal = parseInt($quantity.text().split(' ')[1]);
+            let newQuantity = currentVal + 1;
+    
+            $quantity.text('Qte ' + newQuantity);  // Mettre à jour l'affichage
+            let itemId = $(this).closest('li').data('item-id');  // Obtenir l'identifiant du produit
+            panier[itemId][0] = newQuantity;  // Mettre à jour le panier
+    
+            localStorage.setItem('panier_pharmacie', JSON.stringify(panier));  // Mettre à jour le local storage
+    
+            updateTotalAndQuantity();  // Appeler la fonction de mise à jour du total
+        });
+    
+        $('.quantity .minus').click(function() {
+            let $quantity = $(this).siblings('.badge-primary');
+            let currentVal = parseInt($quantity.text().split(' ')[1]);
+    
+            if (currentVal > 1) {  // Assurer que la quantité ne tombe pas sous 1
+                let newQuantity = currentVal - 1;
+    
+                $quantity.text('Qte ' + newQuantity);  // Mettre à jour l'affichage
+                let itemId = $(this).closest('li').data('item-id');  // Obtenir l'identifiant du produit
+                panier[itemId][0] = newQuantity;  // Mettre à jour le panier
+    
+                localStorage.setItem('panier_pharmacie', JSON.stringify(panier));  // Mettre à jour le local storage
+    
+                updateTotalAndQuantity();  // Appeler la fonction de mise à jour du total
+            }
+        });
+    
+        // Fonction pour mettre à jour le total et la quantité
+        function updateTotalAndQuantity() {
+            total = 0;  // Réinitialiser le total
+            nombre = 0;  // Réinitialiser la quantité totale
+    
+            $('#item-list .quantity').each(function() {
+                let quantite = parseInt($(this).find('.badge-primary').text().split(' ')[1]);
+                let prixElement = $(this).siblings('.badge-warning');  // Obtenir le prix
+                let prixText = prixElement.text().replace(/[^\d.]/g, '');  // Nettoyer le texte pour garder uniquement les chiffres
+                let prix = parseFloat(prixText);  // Convertir en nombre flottant
+    
+                if (isNaN(prix)) {
+                    console.error("Prix est NaN:", prixText);  // Vérification du prix
+                    return;  // Arrêter la mise à jour si le prix est incorrect
+                }
+    
+                total += quantite * prix;  // Ajouter au total
+                nombre += quantite;  // Ajouter à la quantité totale
+            });
+    
+            $('.badge-danger:eq(0)').text('TQte: ' + nombre);  // Mettre à jour la quantité totale
+            $('.badge-danger:eq(1)').text('Total: ' + total + ' DA');  // Mettre à jour le total
+            $('#total').val(total + " DA");  // Mettre à jour le champ du total
+        }
+    
+        // Gestionnaire d'événements pour le bouton "Supprimer"
+        $('#item-list').on('click', '.remove-item', function() {
+            var $item = $(this).closest('li');  // Obtenir l'élément de liste associé
+            var itemId = $item.data('item-id');  // Obtenir l'identifiant du produit à supprimer
+    
+            delete panier[itemId];  // Supprimer du panier
+            localStorage.setItem('panier_pharmacie', JSON.stringify(panier));  // Mettre à jour le local storage
+    
+            $item.remove();  // Supprimer de l'interface utilisateur
+    
+            updateTotalAndQuantity();  // Mettre à jour le total et la quantité
+        });
+    });
+    
+    
+    </script> 
+</body>
+</html>

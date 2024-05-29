@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'stylepatient.css' %}">
+    <title>Inscription patient</title>
+</head>
+
+<body>
+    <div class="haut">
+        <h1>E-PRESCRIBER</h1>
+        <p >Online prescription service</p>
+
+    </div>
+    
+    <div class="container" id="container">
+        <h1>Inscription</h1>
+        <h2>Veuillez remplir ce formulaire pour procéder a votre inscription en tant que patient Eprescriber</h2>
+        
+        <section class="formulaire">
+        <div class="imagee"><img src="/static/medecin.png"></div>
+        <div class="right">
+           
+            <form action="#" method="post">
+                {% csrf_token %}
+                
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="phone">Téléphone:</label>
+                         <input type="tel" id="phone" name="phone" required>
+                   
+                         <br><br>
+                         <label for="adresse">Adresse:</label>
+                         <input type="text" id="adresse" name="adresse" required>
+                              
+                         <label for="email">E-mail :  </label>
+                         <input type="email" id="email" name="email" required>
+                         <br><br>
+                
+                    <label for="birthdate">Date de naissance:</label>
+                    <input type="date" id="birthdate" name="birthdate" required>
+                
+                
+                    <label for="sexe">Sexe:</label>
+                    <select id="sexe" name="sexe" required>
+                        <option value="male">Homme</option>
+                        <option value="female">Femme</option>
+                        <option value="other">Autre</option>
+                    </select>
+                    <br>
+                    <br>
+                
+                    <br>
+                    <br>
+                  
+                   
+                   
+              
+                  
+                    
+                   <div class="formulaire2" >
+                    <label for="username">Nom utilisateur:</label>
+                    <input type="text" id="username" name="username" required>
+                    <br>
+                    <br>
+                
+                
+                    <label for="password"> Mot de passe :</label>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <br>
+                
+                
+                    <label for="confirm_password">Confirmation:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <br><br>
+                    <br><br>
+                
+                <button type="submit">VALIDER</button>
+                   </div>
+            </form>
+            <div class="texte"><p> Rejoignez nous pour obtenir votre premiére ordonnance électronique !</p></div>
+        </div>
+        
+    </section>
+    
+    </div>
+</body>
+
+</html>

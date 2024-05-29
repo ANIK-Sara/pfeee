@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+ {% load static %}
+ <html lang="fr">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+     <title>Tableau de bord de l'administrateur</title>
+  
+     <style>
+        .header {
+    display: flex;
+    background-color: #0d474b;
+    margin: -10px; /* Supprime les marges extérieures */
+    justify-content: center; /* Centre le contenu horizontalement */
+    align-items: center; /* Centre le contenu verticalement */
+}
+.header p {
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 10px; /* Ajuste l'espacement */
+    margin-right: 900px;
+    
+  
+}
+.deconnexion {
+  background-color: rgb(204, 39, 39);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: auto;
+  
+}
+.container {
+    margin-top: 20px;
+    height: 100vh; /* Prend toute la hauteur de la page */
+    width: 25%; /* Un quart de la largeur */
+    float: left; /* Aligne à gauche */
+   margin-left: -10px;
+    padding: 20px; /* Ajoute un peu d'espacement à l'intérieur */
+}
+
+.box {
+    background-color: #f1f1f1;
+    margin-bottom: 30px; /* Ajoute un espacement entre les boxes */
+    padding: 20px; /* Ajoute un peu d'espacement à l'intérieur */
+    border-radius: 10px;
+}
+.box a{
+    text-decoration: none;
+    font-weight: bold;
+color: #0d474b;
+}
+.imagee{
+    margin-top: -50px;
+    margin-left: -60px;
+}
+
+.tache {
+    width: 100%; /* Assure que la section prend toute la largeur disponible */
+    text-align: center; /* Centre le contenu horizontalement */
+  }
+  
+  .rectangle {
+    margin-top: 15px;
+    margin-left: 10px;
+    border: 3px solid #0d474b;
+    border-radius: 5%;
+    width: 350px; /* Largeur du rectangle */
+    height: 400x; /* Hauteur du rectangle */
+    background-image: url('/static/OIPPP.jpg'); /* Image de fond */
+    opacity: 0.8;
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le rectangle */
+    display: flex;
+    align-items: center; /* Centre le contenu verticalement */
+    justify-content: center; /* Centre le contenu horizontalement */
+    color: white; /* Couleur du texte */
+    transition: transform 0.3s ease;
+    
+  }
+   a{text-decoration: none;}
+  
+  .rectangle p {
+    text-decoration: none;
+    font-size: 25px; /* Taille du texte */
+    margin-top: 210px;
+    font-weight: bold;
+    color: white;
+    margin-left: 25px;
+   
+  }
+  .rectangle:hover {
+    transform: scale(1.05); /* Zoom léger au survol */
+  }
+  
+
+  /* Styles pour la fenêtre modale */
+.modal {
+    display: none;
+   position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  margin-top: -80px;
+    
+  }
+  
+  .modal-content {
+    background-color: white;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+   
+    
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .ordonnance {
+    background-image: url('/static/Ordonnance.png'); /* Remplacez 'lien_vers_votre_image.jpg' par le chemin de votre image */
+    background-size: cover;
+    border: 2px solid transparent; /* Bordure transparente */
+    border-radius: 10px; /* Arrondi des coins */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Ombre pour effet 3D */
+    padding: 20px;
+  }
+  
+  /* CSS pour le formulaire */
+  .formulaire {
+    display: flex;
+    flex-direction: column;
+  }
+  
+
+  .formulaire input[type="text"] {
+    border: none; /* Supprime la bordure */
+    border-bottom: 1px dotted black; /* Ajoute des pointillés en bas */
+    outline: none; /* Supprime la bordure de focus */
+    background-color: transparent; /* Rend l'arrière-plan transparent */
+  }
+  
+  .formulaire input[type="text"]:focus {
+    border-bottom: 1px solid black; /* Ajoute une bordure solide en bas lorsqu'ils sont en focus */
+  }
+  .formulaire label {
+    font-weight: bold;
+  }
+  
+  .formulaire .ligne {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .formulaire .lignee {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .formulaire .ligne input {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .formulaire .lignee input {
+    flex: 1;
+    margin-left: 10px;
+  }
+  
+  .formulaire .trait {
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+  }
+  .formulaire input[type="submit"]:focus {
+    background-color:rgb(56, 155, 47); ; /* Ajoute une bordure solide en bas lorsqu'ils sont en focus */
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+  }
+  .formulaire .ajouter-champ {
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    color: #0d474b;
+  }
+.table-container {
+    float: right; /* Faire flotter le conteneur à droite */
+    margin-left: 100px; /* Ajouter une marge à gauche pour l'espacement */
+   
+    padding: 40px; /* Espace intérieur du conteneur */
+   
+}
+
+.tableau {
+    width: 100%; /* Pour s'assurer que le tableau occupe toute la largeur du conteneur */
+     /* Pour fusionner les bordures de cellule */
+    border: 3px solid #0d474b;
+    border-radius: 5%;
+  opacity: 0.8;
+ 
+}
+.margin{
+  
+  margin-left:770px;
+  margin-top: -275px;
+
+
+}
+ .max{
+  overflow-x: auto; /* Ajoute le défilement horizontal lorsque nécessaire */
+  
+  max-height: 320px;
+}
+th {
+  color: black;
+  font-weight: bold;
+  margin-left: -10px;
+}
+
+tbody{
+  margin-left: 25px;
+}
+.margin button {
+  border-radius: 5%;
+  background-color:#0d474b;
+  width: 100%;
+  color: #f1f1f1;
+  font-weight: bold;}
+  tbody td, tbody th {
+    color: black;
+   
+    font-size: large;
+   
+}
+.graphique{
+
+  margin-top:230px;
+  margin-right: 60px;
+}
+ .img1{
+  width: 29%;
+  margin-left: -400px;
+ 
+ 
+}
+.img2{
+  width: 30%;
+ 
+}
+     </style>
+ </head>
+ <body>
+ <div class="header">
+     <p> Medecin EPRESCRIBER </p>
+     <a href="{% url 'deconnexion' %}" class="deconnexion" style="width: 150px;">Déconnexion</a>
+
+ </div>
+ <div class="container">
+     <a >
+         <div class="box">
+             <a href="{% url 'profilmed' %}">Mon profil</a>
+         </div>
+     </a>
+     <a >
+         <div class="box">
+             <a href="{% url 'messages_recus' %}">Messagerie</a>
+         </div>
+     </a>
+     <a >
+         <div class="box">
+            <a href="{% url 'historique_medecin' %}">Historiques</a>
+         </div>
+     </a>
+ </div> 
+ <section class="tache">
+     <a >
+         <div class="rectangle" id="ouvrirModal">
+             <p>Etablir une ordonnance</p>
+         </div>
+     </a>
+ 
+   <!-- La fenêtre modale -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="fermerModal">&times;</span>
+        <div class="ordonnance">
+            <h2>Ordonnance</h2>
+            <form id="form-ordonnance" style="height: 400px;" method="POST" action="{% url 'creer_ordonnance' %}">
+                {% csrf_token %}
+                <input type="hidden" id="patient_id" name="patient_id">
+
+                <div class="formulaire">
+                    <div class="ligne">
+                        <label for="medecin_user">ID Médecin:</label>
+                        <input type="text" id="medecin_user" name="medecin_user">
+                        <label for="patient_user">ID Patient:</label>
+                        <input type="text" id="patient_user" name="patient_user">
+                    </div>
+                    <br><br>
+                    <div class="ligne">
+                        <label for="nom_patient">Nom:</label>
+                        <input type="text" id="nom-patient" name="nom_patient" placeholder="Nom du patient">
+                        <label for="age_patient">Âge:</label>
+                        <input type="text" id="age-patient" name="age_patient" placeholder="Âge du patient">
+                        <label for="sexe_patient">Sexe:</label>
+                        <select id="sexe-patient" name="sexe_patient">
+                            <option value="feminin" selected>Féminin</option>
+                            <option value="masculin">Masculin</option>
+                        </select>
+                    </div>
+                    <br><br><br><br><br><br>
+                    <div id="produits-container">
+                        <div class="ligne">
+                            <label for="produit1">Prescription:</label>
+                            <input type="text" name="produit[]" placeholder="Prescription">
+                            <input type="text" name="description[]" placeholder="Description">
+                        </div>
+                    </div>
+                    <div class="ajouter-champ">
+                        <div class="ajouter-champ"><button type="button" id="ajouter-produit"
+                          style="background-color: white; color: green; border: none;
+                          width: 100px;">+</button>
+                          </div>
+
+                    </div>
+                    <br><br>
+                    <input type="submit" value="Valider" id="valider-ordonnance">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<section class="margin">
+    <div class="max">
+     <table  class="tableau" id="patient-table">
+        <div class="content">
+
+        <form id="search-form" action="{% url 'search_patient' %}" method="GET">
+            <input type="text" id="search-input" name="q"  placeholder="Rechercher...">
+
+           
+        </form>
+         <thead> 
+         <tr>
+       
+             <th>Patient</th>
+             <th>Sexe</th>
+             <th>Âge</th>
+             <th>Id</th>
+             <th>Détails</th>
+       
+          </tr>
+         </thead>
+         
+         <tbody > 
+            
+         </div>
+     </table>
+    </div>
+    </div>
+    </section>
+    <!-- Fenêtre modale pour afficher les détails du patient -->
+<div id="detail-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" id="fermerDetailModal">&times;</span>
+        <h2>Détails du patient</h2>
+        <p><strong>Nom:</strong> <span id="patient-nom"></span></p>
+        <p><strong>Sexe:</strong> <span id="patient-sexe"></span></p>
+        <p><strong>Date de naissance:</strong> <span id="patient-date-naissance"></span></p>
+        <p><strong>Numéro de téléphone:</strong> <span id="patient-num-tel"></span></p>
+        <p><strong>Adresse:</strong> <span id="patient-adresse"></span></p>
+    </div>
+</div>
+    <script>
+        document.getElementById('ajouter-produit').addEventListener('click', function() {
+            var container = document.getElementById('produits-container');
+            var div = document.createElement('div');
+            div.className = 'ligne';
+            div.innerHTML = ` <br> <br> <br>
+                <label for="produit">Prescription:</label>
+                <input type="text" name="produit[]" placeholder="Prescription">
+                <input type="text" name="description[]" placeholder="Description">
+            `;
+            container.appendChild(div);
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('ouvrirModal').addEventListener('click', function() {
+                document.getElementById('modal').style.display = 'block';
+            });
+
+            document.getElementById('fermerModal').addEventListener('click', function() {
+                document.getElementById('modal').style.display = 'none';
+            });
+        });
+
+        document.getElementById('valider-ordonnance').addEventListener('click', function(event) {
+    event.preventDefault(); // Empêche la soumission du formulaire
+
+   // Récupérer les données du formulaire
+   var patientId = document.getElementById('patient_user').value;
+    var nomPatient = document.getElementById('nom-patient').value;
+    var agePatient = document.getElementById('age-patient').value;
+    var sexePatient = document.getElementById('sexe-patient').value;
+
+    // Créer une nouvelle ligne dans le tableau avec les données du formulaire
+    var table = document.getElementById('patient-table');
+    var newRow = table.insertRow();
+    var newRowId = 'patient-' + patientId + '-infos-' + generateUniqueId(); // Générer un identifiant unique pour la ligne
+    newRow.id = newRowId;
+    newRow.innerHTML = `
+        <td>${nomPatient}</td>
+        <td>${sexePatient}</td>
+        <td>${agePatient}</td>
+        <td>${patientId}</td>
+      
+
+    `;
+
+    // Stocker les données localement
+    var patientData = {
+        nom: nomPatient,
+        sexe: sexePatient,
+        age: agePatient,
+        id: patientId
+    };
+    localStorage.setItem(newRowId, JSON.stringify(patientData));
+
+    // Réinitialiser les champs du formulaire
+    document.getElementById('nom-patient').value = '';
+    document.getElementById('age-patient').value = '';
+    document.getElementById('sexe-patient').value = '';
+
+    // Masquer la fenêtre modale
+    document.getElementById('modal').style.display = 'none';
+});
+
+// Fonction pour générer un identifiant unique
+function generateUniqueId() {
+    return Math.random().toString(36).substring(7);
+}
+
+// Recharger les données du stockage local au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    for (var i = 0; i < localStorage.length; i++) {
+        var key = localStorage.key(i);
+        if (key.startsWith('patient-')) {
+            var patientData = JSON.parse(localStorage.getItem(key));
+            var table = document.getElementById('patient-table');
+            var newRow = table.insertRow();
+            newRow.id = key;
+            newRow.innerHTML = `
+                <td>${patientData.nom}</td>
+                <td>${patientData.sexe}</td>
+                <td>${patientData.age}</td>
+                <td>${patientData.id}</td>
+                <td><button onclick="afficherDetailsPatient('${key}')">Voir détails</button></td>
+
+            `;
+        }
+    }
+});
+// Ajoutez un événement de clic aux boutons "Voir détails"
+document.querySelectorAll('.voir-details-btn').forEach(button => {
+    button.addEventListener('click', function() {
+        // Récupérez l'ID du patient à partir de la quatrième colonne du tableau
+        var patientId = this.parentNode.parentNode.querySelector('td:nth-child(4)').innerText;
+
+        // Effectuez une requête Ajax pour récupérer les informations du patient correspondant à cet ID
+        // Ici, vous pouvez utiliser l'ID pour faire une requête Ajax à votre backend Django
+        // et récupérer les informations du patient, puis les afficher dans la fenêtre modale
+        // Remplacez cet exemple par le code approprié pour récupérer les informations du patient
+
+        // Exemple de requête Ajax (vous devez utiliser la méthode appropriée pour votre cas)
+        // Replacez cette partie par votre propre code Ajax pour récupérer les informations du patient
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var patientData = JSON.parse(xhr.responseText);
+                    afficherDetailsPatient(patientId);
+                } else {
+                    console.error('Erreur lors de la récupération des informations du patient');
+                }
+            }
+        };
+        xhr.open('GET', '/chemin/vers/votre/backend/?patient_id=' + patientId);
+        xhr.send();
+    });
+});
+
+// Fonction pour afficher les détails du patient dans la fenêtre modale
+function afficherDetailsPatient(patientId) {
+    var modalContent = `
+        <h2>Détails du patient</h2>
+        <p><strong>Nom:</strong> ${patientId.nom}</p>
+        <p><strong>Sexe:</strong> ${patientId.sexe}</p>
+        <p><strong>Date de naissance:</strong> ${patientId.date_naissance}</p>
+        <p><strong>Numéro de téléphone:</strong> ${patientId.num_tel}</p>
+        <p><strong>Adresse:</strong> ${patientId.adresse}</p>
+    `;
+    // Afficher les détails dans une fenêtre modale
+    var modal = document.getElementById('detail-modal');
+    modal.style.display = 'block';
+    modal.querySelector('.modal-content').innerHTML = modalContent;
+}
+
+
+    </script>
+
+ 
+ </body> 
+ </html>

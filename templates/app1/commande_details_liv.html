@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails de la commande</title>
+</head>
+<body>
+    <h1>Détails de la commande</h1>
+    
+    <ul>
+        <li><strong>Identifiant :</strong> {{ commande.id_commandepharm }}</li>
+        <li><strong>Nom :</strong> {{ commande.nom_utilisateur }}</li>
+        <li><strong>Prénom :</strong> {{ commande.prenom_utilisateur }}</li>
+        <li><strong>Ville :</strong> {{ commande.ville }}</li>
+        <li><strong>Total :</strong> {{ commande.total }} DA</li>
+        <li><strong>Date :</strong> {{ commande.date_commande | date:"Y-m-d H:i:s" }}</li>
+        <li><strong>Adresse e-mail :</strong> {{ commande.adr_mail }}</li>
+        <li><strong>Adresse :</strong> {{ commande.adresse }}</li>
+        <li><strong>Numéro de téléphone :</strong> {{ commande.num_tel }}</li>
+        <li><strong>Ordonnance :</strong> {% if commande.ordonnance %}<a href="{{ commande.ordonnance.url }}">Télécharger</a>{% else %}Aucune{% endif %}</li>
+        <li><strong>Pharmacie :</strong> {{ commande.pharmacie }}</li>
+        <li><strong>Produits :</strong> {{ commande.items }}</li>
+        <!-- Ajoutez les autres attributs ici -->
+        
+            {% if commande.etat != "livré" %}
+                <form method="post" action="{% url 'livraison_terminee' %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="commande_id" value="{{ commande.id_commandepharm }}">
+                    <button type="submit" class="btn btn-success btn-sm" style="width: 150px;">Commande livrée</button>
+                </form>
+            {% endif %}
+        
+    </ul>
+
+    <br><br>
+         
+    
+    
+    
+</body>
+</html>

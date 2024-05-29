@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de nous</title>
+    <link rel="stylesheet" href="{% static 'style2.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <section class="header">
+            <img class="logo" src="/static/lelogo.png" alt="Logo">
+            <nav class="menu">
+                <a href="{% url 'pagedegarde' %}">Acceuil</a>
+                <a  href="{% url 'apropos' %}">A propos de nous</a>
+                <a href="{% url 'contact' %}">Contactez nous</a>
+
+                <a href="{% url 'connexion' %}"class="bouton">
+                    <button>Connectez-vous</button>
+                </a>
+            </nav>
+        </section>
+    
+
+    <section class="apropos">
+        <div class="haut">
+            <h1>E-PRESCRIBER</h1>
+            <a >Online prescription service</a>
+
+        </div>
+        <h1 class="titre"> A Propos de Nous :</h1><br>
+        <div class="presentation1">
+        <div class="imagee"><img src="/static/apropooos.png"></div>
+        <div class="avantagesetobjectifs">
+        <p class="paragraphe">Découvrez notre application pionnière de prescription en ligne en Algérie, la première de son genre dans le pays. Notre objectif est d'améliorer le secteur de la santé en facilitant l'accès aux soins et en modernisant les pratiques médicales. En optant pour notre solution, vous bénéficierez d'une transition fluide vers le numérique, vous permettant ainsi de profiter de nombreux avantages.</p> 
+        <a class="p1">Nos Avantages</a><br><br>
+        <li>Prescription 100 % électronique : zéro papier, aucun risque de perte, et un impact positif sur l'environnement.</li><br>
+        <li>Facilité d'accès pour les patients à leur historique d'ordonnances, disponible à tout moment.</li><br>
+       <li>Accès facile pour les médecins à d'anciennes ordonnances, simplifiant les renouvellements et autres commandes de médicaments.</li><br>
+       <li>Large choix de pharmacies disponibles sur notre réseau, avec possibilité de livraison à domicile.</li><br>
+       <li>Trouver rapidement son médicament sans avoir à visiter plusieurs pharmacies.</li><br>
+       <li>Communication efficace entre nos professionnels de santé et les patients, améliorant la qualité des soins.</li></br>
+       <a class="p1">Nos Objectifs</a><br><br>
+       <li>Faciliter l'expérience pour tous les utilisateurs, qu'ils soient patients, médecins ou pharmaciens.</li><br>
+      <li>Contribuer au développement du pays en proposant une solution technologique moderne et efficace.</li><br>
+      <li> Encourager l'adoption de pratiques respectueuses de l'environnement en réduisant l'utilisation de papier.</li><br>
+      <li>Assurer un accès équitable aux soins de santé en facilitant la prescription et la disponibilité des médicaments.</li><br>
+      <li>Favoriser l'efficacité des professionnels de santé en simplifiant leurs tâches administratives et en améliorant leur communication avec les patients.</li>
+
+ 
+    </div>
+    </div>
+   
+
+    </section>
+ 
+    
+
+
+</header>
+
+
+<footer class="footer ">
+    <div  class="container">
+      <div  class="row">
+          <div  class="footer-col">
+              <h4>à propos de nous </h4>
+              <ul>
+                  <li><a href=""> </a></li>
+                  <li><a href=""> Nos Avantages </a></li>
+                  <li><a href="">Nos objectifs </a></li>
+                  
+              </ul>
+          </div>
+        
+          <div  class="footer-col">
+              <h4>Nos services</h4>
+              <ul>
+                  <li><a href="">L'ordonnance electronique qu'est ce que c'est </a></li>
+                  <li><a href="">Comment marche EPRESCRIBER</a></li>
+                  <li><a href="">Avez-Vous Des Questions?</a></li>
+                 
+              </ul>
+          </div>
+          <div  class="footer-col">
+              <h4>Suivez nous </h4>
+              <div class="social-links"     >
+                  <a href="">  <i class="fab fa-facebook"></i> </a>
+                  <a href="">  <i class="fab fa-instagram"></i>     </a>
+                  <a href="">  <i class="fab fa-twitter"></i></a>
+                  <a href="">   <i class="fas fa-envelope"></i></a>
+                 
+              </div>
+          </div>
+          
+
+
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+  </footer>
+   
+</body>
+</html>

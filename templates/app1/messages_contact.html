@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages de contact</title>
+</head>
+<body>
+    <h1>Messages de contact</h1>
+    <ul>
+        {% for message in messages %}
+        <li>
+            <strong>De :</strong> {{ message.nom }}<br>
+            <strong>Email :</strong> {{ message.email }}<br>
+            <strong>Message :</strong> {{ message.message }}<br>
+            <strong>Rôle :</strong> {{ message.role }}<br>
+        </li>
+        {% empty %}
+        <li>Aucun message de contact.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

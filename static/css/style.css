@@ -1,0 +1,493 @@
+ 
+section.top{
+    
+   
+      
+        
+        
+       
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+    padding: 0;
+    margin-bottom: 50px;
+   
+}
+.hautpage {
+background-image: url('/static/Scribes1.jpg');
+
+
+ /* pour que l'image de fond couvre toute la surface de hautpage */
+background-position:center; /* pour centrer l'image de fond */
+/* Ajoutez d'autres styles au besoin */
+width: 100.80%; /* Largeur de 100% de la largeur de son conteneur parent */
+height: 470px;
+}
+.imagee{
+margin-top: -250px;
+margin-left: 60px;
+
+
+}
+
+.logo {
+/* Redimensionner le logo */
+width: 300px; /* Modifiez cette valeur selon vos besoins */
+height:auto; /* Garantit le maintien des proportions */
+margin-top: -80px; /* Ajustez cette valeur pour déplacer le logo vers le haut */
+margin-left: -50px; /* Ajustez cette valeur pour déplacer le logo vers la gauche */}
+
+.header {
+ display: flex; /* Utilisation de Flexbox pour aligner les éléments horizontalement */
+align-items: center; /* Aligner les éléments verticalement au centre */
+    justify-content: space-between; /* Espacement égal entre les éléments */
+    background-color: #0d474b;
+    padding: 0;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -10px;
+  
+}
+
+.nav {
+    margin-left: auto; /* Déplace la navigation à droite */
+}
+
+.menu{
+    display:flex;
+   margin-top: -150px;
+    margin-right: 300px;
+}
+.menu a  {margin-left: 80px;
+    text-decoration: none; /* Supprimer le soulignement par défaut */
+    color: rgba(245, 245, 245, 0.938);/* Couleur de texte bleu clair */
+    font-weight: bold; /* Texte en gras */
+    
+    font-size: large; 
+}
+
+.menu a:hover {
+    transform: scale(1.1); /* Agrandir légèrement la taille du texte au survol */
+}
+
+.menu button{
+background-color:rgb(56, 155, 47);; /* Couleur de fond verte pour le bouton */
+color: whitesmoke; /* Couleur de texte blanche */
+border: none; /* Supprimer la bordure du bouton */
+padding: 10px 20px; /* Ajouter un peu d'espace intérieur */
+/* Ajouter une bordure arrondie */
+outline: none; /* Supprimer la bordure de mise au point */
+border-radius: 5px;
+cursor: pointer;
+
+}
+.bouton{
+    display:flex;
+    margin-left: 250px;
+    margin-right: -300px;
+    font-weight: bold; /* Texte en gras */
+}
+      
+.titre {
+    /* Centrer le contenu horizontalement */
+    margin-top: -140px;
+     
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column; /* Aligne les éléments en colonne */
+      align-items: center; 
+      
+   
+}
+.titre p{
+    text-align: center;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.titre .Titre {
+    /* Taille du grand titre */
+    color:#0d474b;/* Couleur du grand titre */
+    font-weight: bolder;
+    font-size: 23px;
+   
+    margin-bottom: -50px;
+    margin-top: 150px;
+    font-family:Blippo, fantasy;
+    
+}
+
+.pardebut{
+    color:#0d474b;
+   
+font-size: 35px;
+
+font-family:Blippo, fantasy;
+
+}
+  
+
+
+.boutoninsc{
+    margin-top: 20px;
+    text-align: center;
+    margin-top: 5px;
+
+    
+}
+.boutoninsc button{
+   
+    background-color: rgb(56, 155, 47); /* Couleur de fond verte pour le bouton */
+    color: white; /* Couleur de texte blanche */
+    border: none; /* Supprimer la bordure du bouton */
+    padding: 11px 30px; /* Ajouter un peu d'espace intérieur */
+     /* Ajouter une bordure arrondie */
+    outline: none; /* Supprimer la bordure de mise au point */
+    border-radius: 5px;
+  
+
+}
+         
+
+.boutoninsc p{
+    color: whitesmoke;
+}
+.titre button{
+cursor: pointer;
+}
+.titre button:hover{
+transform: scale(1.1); /* Agrandir légèrement la taille du texte au survol */
+}
+
+
+.services
+
+.service-item {
+    padding: 15px; /* Espacement intérieur */
+text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+     border-right: 2px solid whitesmoke; /* Bordure à droite
+    padding: 30px; /* Marge intérieure pour l'espace à l'intérieur du contour */
+    background-color:#0d474b;
+
+   
+   
+    
+}                                         
+
+i.material-icons{
+color:rgb(56, 155, 47);
+font-size: 55px;
+}
+a.material-icons{
+color:rgb(56, 155, 47);
+font-size: 55px;
+margin-right: 200px;
+}
+.service-details{
+font-weight: bold;
+color:whitesmoke;}
+
+
+
+.top1 {
+
+background-color: white;
+}
+.haut {
+text-align: center; /* Centre le contenu horizontalement */
+display: flex;
+flex-direction: column;
+align-items: center; /* Centre le contenu verticalement */
+}
+
+.haut h1 {
+color: #0d474b;/* Couleur bleue pour le titre */
+font-weight: bold;
+font-size: 20px;
+
+
+}
+
+.haut p {
+font-size: 12px;
+margin-top: -20px;
+color: rgb(56, 155, 47); /* Couleur verte pour le paragraphe */
+font-weight: bold;
+}
+.presentation {
+margin-top: -40px;
+display: flex;
+/* Limite la largeur de la présentation */
+}
+
+.left {
+margin-left: 10px;
+margin-top: 30px;
+flex: 1; /* La boîte gauche prend autant d'espace disponible */
+padding: 20px; /* Ajoute un espacement intérieur */
+}
+
+.right h1{
+color: rgb(56, 155, 47);
+margin-top: -30px;
+font-size: 25px;
+margin-left: 10px;
+
+
+}
+.right {
+flex: 1; /* La boîte droite prend autant d'espace disponible */
+padding: 20px; /* Ajoute un espacement intérieur */
+margin-top: 150px;
+margin-left: -120px;
+}
+
+
+
+.image1 img {
+
+width:550px; /* Lageur de l'image */
+height: 350px; /* Hauteur de l'image ajustée automatiquement pour maintenir les proportions */
+border-radius: 10px;
+
+}
+
+.right p{
+font-size: 19px;
+color: #7b8b8b;
+
+font-weight: bold;
+}
+
+.p2{
+margin-top: -90px;
+font-weight: bold;
+font-size: 19px;
+color: #7b8b8b;
+}
+
+.p1 {
+color: #0d474b;
+font-size: 40px;
+
+font-family:Blippo, fantasy;
+}
+.p11 {
+color:  #0d474b;
+ font-size: 40px;
+ margin-top: -10px;
+ font-family:Blippo, fantasy;
+}
+.avantage1 {
+
+display: flex; /* Met les éléments sur une même ligne */
+}
+
+.avantage1-item {
+border-right: 2px solid whitesmoke; /* Bordure à droite
+flex: 1; /* Chaque élément occupe une partie égale de l'espace disponible */
+margin: 0 ; /* Marge horizontale pour séparer les éléments */
+/* Bordure noire */
+
+padding: 10px; /* Espacement intérieur */
+text-align: center; /* Centre le contenu horizontalement */
+background-color:#0d474b;
+}
+
+
+.service-details {
+margin-top: 10px; /* Marge en haut du paragraphe */
+}
+
+.service-details1 {
+margin-top: 15px; /* Marge en haut du paragraphe */
+color: whitesmoke; 
+}
+.service-details11 {
+margin-top: 15px; /* Marge en haut du paragraphe */
+color: whitesmoke;
+font-weight: bold;
+font-size: 20px;
+}
+.services{display: flex;
+flex-direction: row;
+margin-top: -50px
+;}
+
+.top3{
+background-color:#ffffff;
+}
+.ps{
+color:#0d474b;
+font-size: 40px;
+
+font-family:Blippo, fantasy;
+margin-left: 20px;
+}
+
+.servicess {
+flex:1;
+
+}
+.service1 {flex:1;}
+.servicess p {
+margin-top: 80px;
+font-size: 19px;
+color: #0d474b;
+
+
+}
+.right img{
+margin-top: -290px;
+margin-left: 150px;
+width: 580px;
+
+
+}
+.bas{
+display: flex;
+background-color:#0d474b ;
+}
+.bas p {
+
+
+color: whitesmoke;
+font-weight: bold;
+font-size: 20px;}
+.bas i{
+    margin-left: 450px;
+    font-size: 50px;
+}
+
+.container{
+    max-width: 1300px;
+    
+    margin: auto;
+
+}
+.row{
+    display : flex ;
+    flex-wrap : wrap ; 
+}
+ul{
+    list-style: none;
+}
+.footer{
+   background-color: #0d474b;
+    padding: 70px 0;
+    margin-left: -10px;
+    margin-right: 0px;
+    margin-bottom: -10px;
+    margin-top: -40px;
+
+}
+.footer-col{
+    margin-right:30px ;
+  width: 25%;
+  padding: 0 15px;
+  margin-top: -50px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+    background-color: rgb(56, 155, 47);
+}
+footer-col::before{
+    content: '' ;
+    position : absolute ;
+    left:0 ; 
+    bottom : -10px ;
+    background-color: #e91e63;
+    height:2px ;
+    box-sizing : border-box ; 
+    width : 50px ; 
+
+}
+.footer-col ul li:not(last-child){
+    margin-bottom: 10px;
+
+}
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color : #ffffff ;
+    text-decoration: none;
+    font-weight: 300;
+    color : #bbbbbb ;
+    display: block ;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color : #ffffff ; 
+    padding-left: 8px;
+}
+.footer-col .social-links a{
+    display : inline-block ; 
+    height: 40px;
+    width : 40px ;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0 ;
+    text-align :center ; 
+    line-height : 40px ; 
+    border-radius : 50% ; 
+    color : #ffffff ; 
+    transition : all 0.5s ease ; 
+}
+
+.footer-col .social-links a:hover {
+    color : #24262b ; 
+    background-color: #ffffff;
+
+}
+
+@media(max-width: 767px){
+    .footer-col{
+        width:50%;
+        margin-bottom: 30px;
+    }
+}
+
+
+/* Style pour la fenêtre modale */
+.modal {
+    display: none;
+   position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  .modal-content {
+    background-color: whitesmoke;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 600px;
+    position: relative;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }

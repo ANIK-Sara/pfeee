@@ -1,0 +1,230 @@
+
+.apropos .haut {
+    text-align: center; /* Centre le contenu horizontalement */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre le contenu verticalement */
+}
+
+.haut h1 {
+    color: #0d474b;/* Couleur bleue pour le titre */
+    font-weight: bold;
+    font-size: 20px;
+    
+}
+
+.haut a {
+    font-size: 12px;
+    margin-top: -20px;
+    color: rgb(56, 155, 47); /* Couleur verte pour le paragraphe */
+    font-weight: bold;
+}
+
+.logo {
+    /* Redimensionner le logo */
+    width: 300px; /* Modifiez cette valeur selon vos besoins */
+    height:auto; /* Garantit le maintien des proportions */
+    margin-top: -80px; /* Ajustez cette valeur pour déplacer le logo vers le haut */
+    margin-left: -50px; /* Ajustez cette valeur pour déplacer le logo vers la gauche */}
+
+.header {
+     display: flex; /* Utilisation de Flexbox pour aligner les éléments horizontalement */
+    align-items: center; /* Aligner les éléments verticalement au centre */
+        justify-content: space-between; /* Espacement égal entre les éléments */
+        background-color: #0d474b;
+        padding: 0;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-top: -10px;
+      
+ }
+
+    .nav {
+        margin-left: auto; /* Déplace la navigation à droite */
+    }
+    
+    .menu{
+        display:flex;
+       margin-top: -150px;
+        margin-right: 300px;
+    }
+    .menu a  {margin-left: 80px;
+        text-decoration: none; /* Supprimer le soulignement par défaut */
+        color: rgba(245, 245, 245, 0.938);/* Couleur de texte bleu clair */
+        font-weight: bold; /* Texte en gras */
+        font-size: large;
+        
+        
+    }
+    .menu a:hover {
+        transform: scale(1.1); /* Agrandir légèrement la taille du texte au survol */
+    }
+    .menu button{
+     background-color:rgb(56, 155, 47); /* Couleur de fond verte pour le bouton */
+    color: whitesmoke; /* Couleur de texte blanche */
+    border: none; /* Supprimer la bordure du bouton */
+    padding: 10px 20px; /* Ajouter un peu d'espace intérieur */
+     /* Ajouter une bordure arrondie */
+    outline: none; /* Supprimer la bordure de mise au point */
+    border-radius: 5px;
+    cursor: pointer;
+    
+    
+  
+    }
+    .bouton{
+        display:flex;
+        margin-left: 250px;
+        margin-right: -300px;
+        font-weight: bold; /* Texte en gras */
+    }
+    .apropos{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin-top: -140px;
+        margin-left: -10px;
+        margin-right: -10px;
+
+    }
+    .avantagesetobjectifs{
+        display:flex;
+        flex-direction: column;
+        margin-top: 460px;
+        margin-left: 20px;
+        margin-bottom: 60px;
+    }
+
+    .avantagesetobjectifs li{
+        color:#0d474b;
+        font-size: 16px;
+    }
+   .presentation1{
+    display: flex; /* Utiliser flexbox pour la mise en page */
+    align-items: center;
+   }
+    .apropos .titre{
+        font-size: 40px;
+        margin-left: 50px;
+        font-weight: bold;
+        color: #0d474b;
+        font-family:Blippo, fantasy;
+    }
+   
+    .apropos p{
+        margin-top: -500px;
+      margin-left: -30px;
+        text-align: center;
+        font-size: 17px;
+        color: #0d474b;
+       flex:2;
+    
+    }
+    
+    
+    .imagee img{
+       
+       width: 500px;
+       height: auto;
+       margin-top: -20px;
+        margin-bottom: 100px;
+        flex:1;
+        
+    }
+   
+     .p1{
+        font-weight: bold;
+        font-size: 30px;
+         color: rgb(56, 155, 47); 
+     }
+
+.container{
+    max-width: 1300px;
+    
+    margin: auto;
+
+}
+.row{
+    display : flex ;
+    flex-wrap : wrap ; 
+}
+ul{
+    list-style: none;
+}
+.footer{
+   background-color: #0d474b;
+    padding: 70px 0;
+    margin-left: -10px;
+    margin-right: 0px;
+    margin-bottom: -10px;
+
+}
+.footer-col{
+    margin-right:30px ;
+  width: 25%;
+  padding: 0 15px;
+}
+.footer-col h4{
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: capitalize;
+    margin-bottom: 35px;
+    font-weight: 500;
+    position: relative;
+    background-color: rgb(56, 155, 47);
+}
+footer-col::before{
+    content: '' ;
+    position : absolute ;
+    left:0 ; 
+    bottom : -10px ;
+    background-color: #e91e63;
+    height:2px ;
+    box-sizing : border-box ; 
+    width : 50px ; 
+
+}
+.footer-col ul li:not(last-child){
+    margin-bottom: 10px;
+
+}
+.footer-col ul li a {
+    font-size: 16px;
+    text-transform: capitalize;
+    color : #ffffff ;
+    text-decoration: none;
+    font-weight: 300;
+    color : #bbbbbb ;
+    display: block ;
+    transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color : #ffffff ; 
+    padding-left: 8px;
+}
+.footer-col .social-links a{
+    display : inline-block ; 
+    height: 40px;
+    width : 40px ;
+    background-color: rgba(255,255,255,0.2);
+    margin:0 10px 10px 0 ;
+    text-align :center ; 
+    line-height : 40px ; 
+    border-radius : 50% ; 
+    color : #ffffff ; 
+    transition : all 0.5s ease ; 
+}
+
+.footer-col .social-links a:hover {
+    color : #24262b ; 
+    background-color: #ffffff;
+
+}
+
+@media(max-width: 767px){
+    .footer-col{
+        width:50%;
+        margin-bottom: 30px;
+    }
+}

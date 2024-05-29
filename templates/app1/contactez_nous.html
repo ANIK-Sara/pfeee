@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'style4.css' %}">
+    <title>Formulaire de contact</title>
+    <style>
+        .logo {
+    /* Redimensionner le logo */
+    width: 300px; /* Modifiez cette valeur selon vos besoins */
+    height:auto; /* Garantit le maintien des proportions */
+    margin-top: -80px; /* Ajustez cette valeur pour déplacer le logo vers le haut */
+    margin-left: -50px; /* Ajustez cette valeur pour déplacer le logo vers la gauche */}
+
+.header {
+     display: flex; /* Utilisation de Flexbox pour aligner les éléments horizontalement */
+    align-items: center; /* Aligner les éléments verticalement au centre */
+        justify-content: space-between; /* Espacement égal entre les éléments */
+        background-color: #0d474b;
+        padding: 0;
+        margin-left: -10px;
+        margin-right: -10px;
+        margin-top: -10px;
+      
+ }
+
+    .nav {
+        margin-left: auto; /* Déplace la navigation à droite */
+    }
+    
+    .menu{
+        display:flex;
+       margin-top: -150px;
+        margin-right: 300px;
+    }
+    .menu a  {margin-left: 80px;
+        text-decoration: none; /* Supprimer le soulignement par défaut */
+        color: rgba(245, 245, 245, 0.938);/* Couleur de texte bleu clair */
+        font-weight: bold; /* Texte en gras */
+        font-size: large;
+        
+        
+    }
+    .menu a:hover {
+        transform: scale(1.1); /* Agrandir légèrement la taille du texte au survol */
+    }
+    .menu button{
+     background-color:rgb(56, 155, 47);; /* Couleur de fond verte pour le bouton */
+    color: whitesmoke; /* Couleur de texte blanche */
+    border: none; /* Supprimer la bordure du bouton */
+    padding: 10px 20px; /* Ajouter un peu d'espace intérieur */
+     /* Ajouter une bordure arrondie */
+    outline: none; /* Supprimer la bordure de mise au point */
+    border-radius: 5px;
+   
+    
+  
+    }
+    .bouton{
+        display:flex;
+        margin-left: 250px;
+        margin-right: -300px;
+        font-weight: bold; /* Texte en gras */
+    }
+    .formulaire{
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        margin-top: -140px;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding: 50px;
+    }
+ .formulaire h2{
+    color: #0d474b;
+    font-weight: bold;
+   margin-top: -10px;
+    margin-bottom: 70px;
+    font-size: 40px;
+    font-family:Blippo, fantasy;
+ }
+    .haut {
+        text-align: center; /* Centre le contenu horizontalement */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centre le contenu verticalement */
+        margin-top: -50px;
+    }
+    
+    .haut h1 {
+        color: #0d474b;/* Couleur bleue pour le titre */
+        font-weight: bold;
+        font-size: 20px;
+        
+    }
+    
+    .haut a {
+        font-size: 12px;
+        margin-top: -20px;
+        color: rgb(56, 155, 47); /* Couleur verte pour le paragraphe */
+        font-weight: bold;
+    }
+
+   .formulaire .image{
+    margin-left: 90px;
+    width: 80%;
+      margin-top: -250px;
+    }
+
+    .contact{
+       
+        display: flex;
+    }
+    .left {
+        
+        flex: 1; /* La boîte gauche prend autant d'espace disponible */
+        padding: 20px; /* Ajoute un espacement intérieur */
+        margin-top: 150px;
+    }
+    
+   
+    .right {
+        flex: 1; /* La boîte droite prend autant d'espace disponible */
+        padding: 60px; /* Ajoute un espacement intérieur */
+        padding-right: 100px;
+        margin-top: -30px;
+        
+        border-radius: 10px;
+      
+       
+    }
+   
+
+
+
+    /* Style pour agrandir les champs de saisie et les zones de texte */
+input[type="text"],
+input[type="email"],
+textarea,
+select {
+  width: 110%; /* Définit la largeur à 100% de leur conteneur */
+  padding: 8px; /* Ajoute un espacement intérieur pour un meilleur aspect */
+  box-sizing: border-box; /* Garantit que la largeur spécifiée inclut le rembourrage et la bordure */
+border-radius: 5px;
+}
+
+/* Style pour les options du sélecteur */
+select {
+  width: 80%;
+  padding: 8px;
+  box-sizing: border-box;
+  /* Pour rendre le sélecteur plus visible sur les navigateurs qui supportent le style de sélection de couleur */
+  background-color: white;
+  color:rgb(56, 155, 47);
+}
+label[for="name"],label[for="email"],label[for="message"],label[for="role"] {
+    font-family: Arial, sans-serif; /* Changer la police d'écriture */
+    font-weight: bold;
+    color: #0d474b;
+    font-size: 16px; /* Changer la taille de la police d'écriture */
+  }
+
+input[type="submit"] {
+    margin-top: 20px;
+    margin-left: 190px;
+    width: 30%; /* Ajuste la largeur du bouton à 100% */
+    padding: 10px; /* Ajoute un espacement intérieur pour un meilleur aspect */
+    border-radius: 5px;
+    background-color: rgb(56, 155, 47); /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    
+    cursor: pointer; /* Change le curseur au survol */
+  }
+    .footer{
+        background-color: #0d474b;
+         padding: 70px 0;
+         margin-left: -10px;
+         margin-right: 0px;
+         margin-bottom: -10px;
+         margin-top: -40px;
+     
+     }
+     .footer-col{
+         margin-right:30px ;
+       width: 25%;
+       padding: 0 15px;
+     }
+     .footer-col h4{
+         font-size: 18px;
+         color: #ffffff;
+         text-transform: capitalize;
+         margin-bottom: 35px;
+         font-weight: 500;
+         position: relative;
+         background-color: rgb(56, 155, 47);
+     }
+     footer-col::before{
+         content: '' ;
+         position : absolute ;
+         left:0 ; 
+         bottom : -10px ;
+         background-color: #e91e63;
+         height:2px ;
+         box-sizing : border-box ; 
+         width : 50px ; 
+     
+     }
+     .footer-col ul li:not(last-child){
+         margin-bottom: 10px;
+     
+     }
+     .footer-col ul li a {
+         font-size: 16px;
+         text-transform: capitalize;
+         color : #ffffff ;
+         text-decoration: none;
+         font-weight: 300;
+         color : #bbbbbb ;
+         display: block ;
+         transition: all 0.3s ease;
+     }
+     
+     .footer-col ul li a:hover {
+         color : #ffffff ; 
+         padding-left: 8px;
+     }
+     .footer-col .social-links a{
+         display : inline-block ; 
+         height: 40px;
+         width : 40px ;
+         background-color: rgba(255,255,255,0.2);
+         margin:0 10px 10px 0 ;
+         text-align :center ; 
+         line-height : 40px ; 
+         border-radius : 50% ; 
+         color : #ffffff ; 
+         transition : all 0.5s ease ; 
+     }
+     
+     .footer-col .social-links a:hover {
+         color : #24262b ; 
+         background-color: #ffffff;
+     
+     }
+     
+     @media(max-width: 767px){
+         .footer-col{
+             width:50%;
+             margin-bottom: 30px;
+         }
+     }
+     .container{
+        max-width: 1300px;
+        
+        margin: auto;
+    
+    }
+    .row{
+        display : flex ;
+        flex-wrap : wrap ; 
+    }
+    ul{
+        list-style: none;
+    }
+    </style>
+</head>
+<body>
+
+
+    <section class="header">
+        <img class="logo" src="/static/lelogo.png" alt="Logo">
+        <nav class="menu">
+            <a href="">Acceuil</a>
+            <a  href="">A propos de nous</a>
+            <a href="">Contactez nous</a>
+
+            <a href=""class="bouton">
+                <button>Connectez-vous</button>
+            </a>
+        </nav>
+    </section>
+  <section class="formulaire">
+       <div class="haut">
+        <h1>E-PRESCRIBER</h1>
+        <a >Online prescription service</a>
+
+       </div>
+      <h2>Formulaire de contact</h2>
+      <div class="contact">
+       
+    <div class="right"> 
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="identifiant_eprescriber">Identifiant Eprescriber</label><br>
+            <input type="text" id="identifiant_eprescriber" name="identifiant_eprescriber" required><br><br>
+        
+            <label for="name">Nom :</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+           
+            <label for="email">E-mail :</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+        
+            <label for="message">Message :</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+            
+            <label for="role">Rôle :</label><br>
+            <select id="role" name="role" required>
+                <option value="">Sélectionner un rôle</option>
+                <option value="medecin">Médecin</option>
+                <option value="patient">Patient</option>
+                <option value="pharmacie">Pharmacie</option>
+                <option value="livreur">Livreur</option>
+            </select><br><br>
+            <input type="submit" value="Envoyer">
+        </form>
+        
+</div>
+<div class="left"> 
+    <img class="image" src="" >
+  </div>
+</div>
+
+</section>
+<footer class="footer ">
+    <div  class="container">
+      <div  class="row">
+          <div  class="footer-col">
+              <h4>à propos de nous </h4>
+              <ul>
+                  <li><a href=""> </a></li>
+                  <li><a href=""> Nos Avantages </a></li>
+                  <li><a href="">Nos objectifs </a></li>
+                  
+              </ul>
+          </div>
+        
+          <div  class="footer-col">
+              <h4>Nos services</h4>
+              <ul>
+                  <li><a href="">L'ordonnance electronique qu'est ce que c'est </a></li>
+                  <li><a href="">Comment marche EPRESCRIBER</a></li>
+                  <li><a href="">Avez-Vous Des Questions?</a></li>
+                 
+              </ul>
+          </div>
+          <div  class="footer-col">
+              <h4>Suivez nous </h4>
+              <div class="social-links"     >
+                  <a href="">  <i class="fab fa-facebook"></i> </a>
+                  <a href="">  <i class="fab fa-instagram"></i>     </a>
+                  <a href="">  <i class="fab fa-twitter"></i></a>
+                  <a href="">   <i class="fas fa-envelope"></i></a>
+                 
+              </div>
+          </div>
+          
+
+
+
+
+      </div>
+
+
+
+
+
+
+    </div>
+
+
+
+
+  </footer>
+</body>
+</html>
